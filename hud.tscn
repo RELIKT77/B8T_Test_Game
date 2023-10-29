@@ -1,0 +1,149 @@
+[gd_scene load_steps=6 format=3 uid="uid://vsxo86khegju"]
+
+[ext_resource type="FontFile" uid="uid://cyjl6y1oksx8v" path="res://fonts/Xolonium-Regular.ttf" id="1_mgjhe"]
+[ext_resource type="Script" path="res://hud.gd" id="1_vnxxu"]
+[ext_resource type="Script" path="res://OptionsButton.gd" id="3_4q4my"]
+[ext_resource type="Script" path="res://ExitButton.gd" id="4_iuopd"]
+[ext_resource type="PackedScene" uid="uid://cnyye6fjgpqhe" path="res://options_menu.tscn" id="5_lxyq1"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_vnxxu")
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_top = -8.0
+offset_right = 574.0
+offset_bottom = 73.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_mgjhe")
+theme_override_font_sizes/font_size = 64
+text = "0
+"
+
+[node name="Message" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.365885
+anchor_top = 0.375
+anchor_right = 1.04991
+anchor_bottom = 0.625
+offset_left = -232.5
+offset_top = -77.0
+offset_right = -232.5
+offset_bottom = -77.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mgjhe")
+theme_override_font_sizes/font_size = 64
+text = "RELIKT'S VERY COOL
+TEST GAME!"
+horizontal_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -201.0
+offset_top = -278.0
+offset_right = 207.0
+offset_bottom = -192.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_mgjhe")
+theme_override_font_sizes/font_size = 64
+text = "start button"
+
+[node name="OptionsButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -202.0
+offset_top = -184.0
+offset_right = 206.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_mgjhe")
+theme_override_font_sizes/font_size = 64
+text = "options"
+script = ExtResource("3_4q4my")
+
+[node name="ExitButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -202.0
+offset_top = -90.0
+offset_right = 206.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_mgjhe")
+theme_override_font_sizes/font_size = 64
+text = "exit "
+script = ExtResource("4_iuopd")
+
+[node name="MessageTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 487.0
+offset_top = 375.0
+offset_right = 666.0
+offset_bottom = 401.0
+text = "test label please ignore"
+
+[node name="StartButton2" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -386.0
+offset_top = -43.0
+offset_right = 386.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mgjhe")
+theme_override_font_sizes/font_size = 64
+text = "the real start button :D"
+
+[node name="GetReady" type="Label" parent="."]
+offset_left = 360.0
+offset_top = 103.0
+offset_right = 791.0
+offset_bottom = 184.0
+theme_override_fonts/font = ExtResource("1_mgjhe")
+theme_override_font_sizes/font_size = 64
+text = "GET READY!"
+
+[node name="StartButton3" type="Button" parent="."]
+offset_left = 202.0
+offset_top = 283.0
+offset_right = 956.0
+offset_bottom = 369.0
+theme_override_fonts/font = ExtResource("1_mgjhe")
+theme_override_font_sizes/font_size = 64
+text = "the TRUE start button"
+
+[node name="OptionsMenu" parent="." instance=ExtResource("5_lxyq1")]
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
+[connection signal="pressed" from="StartButton2" to="." method="_on_start_button_2_pressed"]
+[connection signal="ready" from="GetReady" to="." method="_on_get_ready_ready"]
+[connection signal="pressed" from="StartButton3" to="." method="_on_start_button_3_pressed"]
